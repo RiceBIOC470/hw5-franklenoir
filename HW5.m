@@ -89,13 +89,18 @@ yeast_mask = imerode(yeast_mask,strel('disk',4));
 yeast_mask = imdilate(yeast_mask,strel('disk',3));
 
 fig = figure;
+imshowpair(yeast_mask,yeast_img);
+saveas(fig,'yeast1.tif');
+hold off;
+
+fig = figure;
 subplot(1,2,1);
 imshow(yeast_img);
 title('Yeast');
 subplot(1,2,2);
 imshow(yeast_mask,[]);
 title('Yeast Mask');
-saveas(fig,'yeast.tif');
+saveas(fig,'yeast2.tif');
 hold off;
 
 %Worms
@@ -122,6 +127,13 @@ worms_mask = imfill(worms_mask,'holes');
 worms_mask = imerode(worms_mask,strel('disk',4));
 worms_mask = imdilate(worms_mask,strel('disk',2));
 
+worms_img = worms_img(90:500,145:560);
+
+fig = figure;
+imshowpair(worms_mask,worms_img);
+saveas(fig,'worms1.tif');
+hold off;
+
 fig = figure;
 subplot(1,2,1);
 imshow(worms_img, []);
@@ -129,7 +141,7 @@ title('Worms');
 subplot(1,2,2);
 imshow(worms_mask,[]);
 title('Worms Mask');
-saveas(fig,'worms.tif');
+saveas(fig,'worms2.tif');
 hold off;
 
 %Bacteria
@@ -147,6 +159,13 @@ data = imfill(data,'holes');
 
 imshow(data, []);
 
+data = imrotate( data , -90 );
+data = flipdim(data ,2);
+fig = figure;
+imshowpair(data,bacteria_img);
+saveas(fig,'bacteria1.tif');
+hold off;
+
 fig = figure;
 subplot(1,2,1);
 imshow(bacteria_img, []);
@@ -154,7 +173,7 @@ title('Bacteria');
 subplot(1,2,2);
 imshow(data,[]);
 title('Bacteria Mask');
-saveas(fig,'bacteria.tif');
+saveas(fig,'bacteria2.tif');
 hold off;
 
 
@@ -175,6 +194,10 @@ mask = imerode(mask,strel('disk',3));
 mask = imdilate(mask,strel('disk',2));
 
 imshow(mask,[]);
+fig = figure;
+imshowpair(mask,cellp_img);
+saveas(fig,'cellphase1.tif');
+hold off;
 
 fig = figure;
 subplot(1,2,1);
@@ -183,5 +206,5 @@ title('Cell Phase');
 subplot(1,2,2);
 imshow(mask,[]);
 title('Cell Phase Mask');
-saveas(fig,'cellphase.tif');
+saveas(fig,'cellphase2.tif');
 hold off;
