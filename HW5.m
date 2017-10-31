@@ -5,6 +5,8 @@
 
 %% Problem 1. Starting with Ilastik
 
+%Walter Frank Lenoir
+
 % Part 1. Use Ilastik to perform a segmentation of the image stemcells.tif
 % in this folder. Be conservative about what you call background - i.e.
 % don't mark something as background unless you are sure it is background.
@@ -56,6 +58,8 @@ imshow(mask,[]);
 
 %% Problem 2. Segmentation problems.
 
+%Walter Frank Lenoir
+
 % The folder segmentationData has 4 very different images. Use
 % whatever tools you like to try to segement the objects the best you can. Put your code and
 % output masks in the repository. If you use Ilastik as an intermediate
@@ -64,6 +68,7 @@ imshow(mask,[]);
 % with your final segmentation. 
 
 %Yeast
+clear all;
 yeast_img = imread('./segmentationData/yeast.tif');
 yeast_mask1 = double(yeast_img > 45);
 
@@ -94,6 +99,7 @@ saveas(fig,'yeast.tif');
 hold off;
 
 %Worms
+clear all;
 
 worms_img = imread('./segmentationData/worms.tif');
 
@@ -127,6 +133,8 @@ saveas(fig,'worms.tif');
 hold off;
 
 %Bacteria
+clear all;
+
 bacteria_img = imread('./segmentationData/bacteria.tif');
 data = h5read('bacteria.h5','/exported_data');
 data = squeeze(data);
@@ -151,6 +159,7 @@ hold off;
 
 
 %cell phase contrast
+clear all;
 cellp_img = imread('./segmentationData/cellPhaseContrast.png');
 
 mask = cellp_img > 150;
