@@ -1,4 +1,14 @@
 %HW5
+%GB comments:
+1a 100
+1b 100
+1c 100
+1d 100
+2yeast: 100
+2worm: 95 resulting image could be better. While there are some speckled masks within the image, the major concern is the fact that there is a mask framing the image that will be treated equally to the worm masks. Bwareaopen could get ride of a lot of your random masks in the image. 
+2bacteria: 85 Segmentation is…not good. In this scenario perhaps reattempting the segmentation in illastik could have been helpful or using watershed function in matlab. 
+2phase: 100 this is really good. 
+Overall: 98
 
 % Note. You can use the code readIlastikFile.m provided in the repository to read the output from
 % ilastik into MATLAB.
